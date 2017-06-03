@@ -1,0 +1,15 @@
+ int uniquePaths(int m, int n)
+    {
+        vector<int> totalPaths(m, 1);
+        
+        for(int i = 0; i < m; i++)
+        totalPaths[i] = 1;
+        
+        for(int i = 1; i < n; i++)
+        {
+            for(int j = 1; j < m; j++)
+            totalPaths[j] = totalPaths[j] + totalPaths[j-1];
+        }
+        
+        return totalPaths[m-1];
+    }
